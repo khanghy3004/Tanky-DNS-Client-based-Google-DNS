@@ -1,4 +1,5 @@
-# Tanky DNS Client based Google DNS
+# Tanky DNS Client based Google DNS and Cloudflare DoH
+![Tanky DNS Client](TankyDNS.png)
 ## Installation and Use
 #### Requirements
 * Windows 7 or later.
@@ -22,6 +23,10 @@ npm start
 2. Then, give Node.js elevated privlages (UAC Administrator). This is required as much of the backend work involved in changing DNS addresses involves using Windows Shell. (Shown below)
 
 ![How to elevate UAC to Admin](https://i.gyazo.com/948e7f1460a11e2f691af005ce8ddd7d.gif)
+
+3. DoH Server
+Open Settings, enable DoH Server. We integrate a DNS-to-HTTPS proxy into the app and run it in the background 
+![DoH](DoH.png)
 
 ## How it works
 It's actually really simple, enabling 8.8.8.8 is done through this command

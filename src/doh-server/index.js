@@ -3,7 +3,7 @@ const request = require('request')
 const dnsPacket = require('dns-packet')
 
 const port = 53
-const url = "https://172.105.117.93/dns-query"
+const url = "https://chrome.cloudflare-dns.com/dns-query"
 
 //pinning to IPv4 as server was replying on IPv6 when request came in on IPv4
 const server = dgram.createSocket('udp4')
