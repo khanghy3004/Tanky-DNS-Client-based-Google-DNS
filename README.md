@@ -26,6 +26,7 @@ npm start
 
 3. DoH Server
 Open Settings, enable DoH Server. We integrate a DNS-to-HTTPS proxy into the app and run it in the background 
+
 ![DoH](DoH.png)
 
 ## How it works
