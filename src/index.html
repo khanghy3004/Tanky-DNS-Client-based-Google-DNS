@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>TankyDNS</title>
+
+  <link rel="stylesheet" href="../src/assets/css/master.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+</head>
+
+<body>
+  <header>
+    <div class="draggable"></div>
+    <div class="button exit" id="close-btn">
+      <i class="material-icons">
+        close
+      </i>
+    </div>
+    <div class="button minimize" id="min-btn">
+      <i class="material-icons">
+        minimize
+      </i>
+    </div>
+  </header>
+
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn">Settings</button>
+      <div class="dropdown-content">
+        <a href="#">
+          <input type="checkbox" id="doh" name="doh" style="float:right; margin-left: 10px;">
+          <label for="doh">DNS over HTTPS</label>
+        </a>
+      </div>
+    </div>
+    <a href="#" id="about">About</a>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="hub">
+        <span>Tanky</span>
+        <span>DNS</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="startstop">
+        <span class="slider round"></span>
+      </label>
+
+      <div class="sub-text connected no" id="connection-status">
+        Loading
+      </div>
+      <div class="detail-text positive" id="connection-details">
+        Loading
+      </div>
+      <div class="detail-text-dns positive" id="connection-dns">
+        DNS Server: Loading
+      </div>
+      <div class="detail-text-time positive" id="connection-time">
+        Query time: Loading
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    Tanky DNS Client 1.0.0, Node.js
+    <script>document.write(process.versions.node)</script>,
+    Chromium
+    <script>document.write(process.versions.chrome)</script>,
+    Electron
+    <script>document.write(process.versions.electron)</script>
+  </footer>
+
+  <script>
+      (function () {
+        // Retrieve remote BrowserWindow
+        const { BrowserWindow } = require('electron').remote
+        const remote = require('electron').remote
+
+        function openModal() {
+          let win = new remote.BrowserWindow({
+            width: 450,
+            height: 480,
+            resizable: false,
+            autoHideMenuBar: true,
+            parent: remote.getCurrentWindow(),
+            modal: true
+          })
+
+          win.loadFile('src/about.html')
+        }
+
+        function init() {
+          // Minimize task
+          document.getElementById("min-btn").addEventListener("click", (e) => {
+            var window = BrowserWindow.getFocusedWindow();
+            window.minimize();
+          });
+
+          // Close app
+          document.getElementById("close-btn").addEventListener("click", (e) => {
+            var window = BrowserWindow.getFocusedWindow();
+            window.close();
+          });
+
+          document.getElementById("about").addEventListener("click", (e) => {
+            openModal();
+          });
+        };
+
+        document.onreadystatechange = () => {
+          if (document.readyState == "complete") {
+            init();
+          }
+        };
+      })();
+  </script>
+  <script>
+    require('../src/index.js')
+  </script>
+</body>
+
+</html>
