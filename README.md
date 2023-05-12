@@ -11,9 +11,9 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 1. Clone the repo and install npm
 ```bash
 # Clone this repository
-https://github.com/khanghy3004/Google-DNS-Client
+https://github.com/khanghy3004/Tanky-DNS-Client-based-Google-DNS-and-Cloudflare-DoH
 # Go into the repository
-cd Google-DNS-Client
+cd Tanky-DNS-Client-based-Google-DNS-and-Cloudflare-DoH
 # Install dependencies
 npm install
 # Run the app
